@@ -4,17 +4,22 @@
     box-sizing: border-box;
 }
 
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 
 .container {
+    height: 500px;
+    width: 500px;
     display: grid;
-    grid-template-columns: repeat(16, 1fr);
+    background-color: rgb(0, 136, 45, 0.4);
 }
 
 .square {
-    height: 50px;
+    border: black solid 1px;
+    aspect-ratio: 1 / 1;
 }
-
-
-
-
-
