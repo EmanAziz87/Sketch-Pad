@@ -1,0 +1,20 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+}
+
+.square {
+    height: 50px;
+}
+
+
+
+
+
