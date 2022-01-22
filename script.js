@@ -26,22 +26,22 @@ function createGrid(size, defaultGrid = 16) {
 
 function removeGrid() {
     const allSquare = document.querySelectorAll('.square');
-    let previousGrid = 0;
     allSquare.forEach((square) => {square.remove()});
 }
 
-function chooseSize() {
+
+function chooseGridSize() {
     resetButton.addEventListener('click', function() {
         let size = (Number(prompt('Pick Your Sketchpad Size! (Tip: Must be 64 or less)')));
         if (size > 64 || isNaN(size) || !size) {
             alert('The number must be below 64');
             removeGrid();
             createGrid(16);
+        } else {
+            removeGrid();
+            createGrid(size);
         }
-        removeGrid();
-        createGrid(size);
     });
-    removeGrid();
 }
 
 function colorSquares() {
@@ -49,18 +49,48 @@ function colorSquares() {
     allSquare.forEach((square) => {
         square.addEventListener('mouseover', function() {
             square.style.cssText = 'background-color: black';
+        });
     });
-});
+    blackButton.addEventListener('click', function(){
+        allSquare.forEach((square) => {
+            square.style.cssText = 'background-color: none';
+            square.addEventListener('mouseover', function() {
+                square.style.cssText = 'background-color: black';
+            });
+        });
+    });
+    rainbowSquares();
 }
 
-
+function rainbowSquares() {
+    rainbowButton.addEventListener('click', function() {
+        const allSquare = document.querySelectorAll('.square');
+        allSquare.forEach((square) => {
+            square.style.cssText = 'background-color: none';
+            square.addEventListener('mouseover', function() {
+                let red = Math.floor((Math.random() * 255) + 1);
+                let green = Math.floor((Math.random() * 255) + 1);
+                let blue = Math.floor((Math.random() * 255) + 1);
+                square.style.cssText = `background-color: rgb(${red}, ${green}, ${blue})`;
+            });
+        });
+    });   
+}
 
 const resetButton = document.createElement('button');
 resetButton.textContent = 'Grid Reset';
 outerContainer.appendChild(resetButton);
 
+const rainbowButton = document.createElement('button');
+rainbowButton.textContent = 'Rainbow';
+outerContainer.appendChild(rainbowButton);
 
-chooseSize();
+const blackButton = document.createElement('button');
+blackButton.textContent = 'Black';
+outerContainer.appendChild(blackButton);
+
+
+chooseGridSize();
 createGrid();
 
 

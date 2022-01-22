@@ -20,6 +20,6 @@ body {
 }
 
 .square {
-    border: black solid 1px;
+    border: black solid 0.1px;
     aspect-ratio: 1 / 1;
 }
