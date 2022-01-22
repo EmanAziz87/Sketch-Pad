@@ -79,14 +79,17 @@ function rainbowSquares() {
 
 const resetButton = document.createElement('button');
 resetButton.textContent = 'Grid Reset';
+resetButton.classList.add('button', 'reset-button');
 outerContainer.appendChild(resetButton);
 
 const rainbowButton = document.createElement('button');
 rainbowButton.textContent = 'Rainbow';
+rainbowButton.classList.add('button', 'rainbow-button');
 outerContainer.appendChild(rainbowButton);
 
 const blackButton = document.createElement('button');
 blackButton.textContent = 'Black';
+blackButton.classList.add('button', 'black-button')
 outerContainer.appendChild(blackButton);
 
 
